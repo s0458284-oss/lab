@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON and CSV Simple Program</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .box {
+            background: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>a) JSON to JavaScript Object</h2>
+<div class="box">
+<textarea id="json1">
+{"name":"Ravi","age":20}
+</textarea>
+<br>
+<button onclick="jsonToObject()">Convert</button>
+<p id="out1"></p>
+</div>
+
+<h2>b) JSON Date to JavaScript Date</h2>
+<div class="box">
+<textarea id="json2">
+{"date":"2025-03-10"}
+</textarea>
+<br>
+<button onclick="jsonToDate()">Convert Date</button>
+<p id="out2"></p>
+</div>
+
+<h2>c) JSON ↔ CSV</h2>
+<div class="box">
+<textarea id="json3">
+[{"name":"Asha","age":21},{"name":"Rahul","age":22}]
+</textarea>
+<br>
+<button onclick="jsonToCSV()">JSON to CSV</button>
+<button onclick="csvToJSON()">CSV to JSON</button>
+<p id="out3"></p>
+</div>
+
+<script>
+function jsonToObject() {
+    let text = document.getElementById("json1").value;
+    let obj = JSON.parse(text);
+    document.getElementById("out1").innerHTML =
+        "Name: " + obj.name + "<br>Age: " + obj.age;
+}
+
+function jsonToDate() {
+    let text = document.getElementById("json2").value;
+    let obj = JSON.parse(text);
+    let d = new Date(obj.date);
+    document.getElementById("out2").innerHTML = d;
+}
+
+function jsonToCSV() {
+    let json = JSON.parse(document.getElementById("json3").value);
+    let csv = "name,age<br>";
+    json.forEach(j => {
+        csv += j.name + "," + j.age + "<br>";
+    });
+    document.getElementById("out3").innerHTML = csv;
+}
+
+function csvToJSON() {
+    let csv = "name,age\nAsha,21\nRahul,22";
+    let lines = csv.split("\n");
+    let json = [];
+
+    for (let i = 1; i < lines.length; i++) {
+        let data = lines[i].split(",");
+        json.push({ name: data[0], age: data[1] });
+    }
+
+    document.getElementById("out3").innerHTML =
+        JSON.stringify(json);
+}
+</script>
+
+</body>
+</html>

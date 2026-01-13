@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+body{background:#eef2ff;font-family:Arial}
+form{width:320px;margin:50px auto;background:#fff;padding:15px;border-radius:10px;box-shadow:0 0 8px gray}
+h2{text-align:center}
+td{padding:5px;font-size:14px}
+input,select,textarea{width:100%;padding:5px}
+input[type=submit]{background:green;color:#fff;border:0;padding:6px}
+input[type=reset]{background:red;color:#fff;border:0;padding:6px}
+</style>
+</head>
+<body>
+<form>
+<h2>Registration Form</h2>
+<table>
+<tr><td>First Name:</td><td><input type="text"></td></tr>
+<tr><td>Last Name:</td><td><input type="text"></td></tr>
+<tr><td>Email:</td><td><input type="email"></td></tr>
+<tr><td>Password:</td><td><input type="password"></td></tr>
+<tr><td>DOB:</td><td><input type="date"></td></tr>
+<tr><td>Gender:</td><td><input type="radio" name="g">M <input type="radio" name="g">F</td></tr>
+<tr><td>Country:</td><td><select><option>India</option><option>USA</option></select></td></tr>
+<tr><td>Bio:</td><td><textarea rows="2"></textarea></td></tr>
+<tr><td colspan="2" align="center">
+<input type="submit" value="Register"> <input type="reset" value="Reset">
+</td></tr>
+</table>
+</form>
+</body>
+</html>

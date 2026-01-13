@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mini Calc</title>
+<style>
+body{text-align:center;font-family:Arial;margin-top:50px}
+input{width:70px;margin:3px}
+button{margin:2px}
+</style>
+</head>
+<body>
+<h3>Mini Calculator</h3>
+<input id="a" type="number" placeholder="A">
+<input id="b" type="number" placeholder="B"><br>
+<button onclick="r(a+b)">+</button>
+<button onclick="r(a-b)">-</button>
+<button onclick="r(a*b)">*</button>
+<button onclick="r(a/b)">/</button>
+<button onclick="r(a%b)">%</button>
+<button onclick="r(a**b)">^</button>
+<button onclick="r(Math.sqrt(a))">√</button>
+<button onclick="r(a*a)">x²</button>
+<p id="out"></p>
+<script>
+function g(id){return parseFloat(document.getElementById(id).value)||0}
+function r(v){document.getElementById('out').innerText='Result: '+v}
+let a,b;
+setInterval(()=>{a=g('a');b=g('b')},200);
+</script>
+</body>
+</html>

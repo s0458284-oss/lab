@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Example | vtucode</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f7f6;
+            margin:0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        .container{
+            background:#fff;
+            padding:25px;
+            text-align:center;
+            border-radius:10px;
+            box-shadow:0 4px 15px rgba(0,0,0,.1);
+        }
+        #paragraph{
+            margin-bottom:15px;
+            font-size:18px;
+        }
+        #list{
+            list-style:none;
+            padding:0;
+            margin-bottom:15px;
+        }
+        #list li{
+            background:#e8f0fe;
+            margin:5px 0;
+            padding:8px;
+            border-radius:6px;
+        }
+        .box{
+            width:100px;
+            height:100px;
+            background:blue;
+            color:#fff;
+            line-height:100px;
+            margin:15px auto;
+            border-radius:6px;
+        }
+        button{
+            padding:10px 20px;
+            margin:8px;
+            border:none;
+            border-radius:5px;
+            background:#007bff;
+            color:#fff;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <p id="paragraph">This is an existing paragraph.</p>
+
+    <ul id="list">
+        <li>List item 1</li>
+        <li>List item 2</li>
+    </ul>
+
+    <div class="box" id="box">Animate me!</div>
+
+    <button id="appendButton">Append Content</button>
+    <button id="animateButton">Animate Box</button>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+    $("#appendButton").click(function(){
+        $("#paragraph").append(" Appended text.");
+        $("#list").append("<li>New appended list item</li>");
+    });
+
+    $("#animateButton").click(function(){
+        $("#box").css({
+            width:"100px",
+            height:"100px",
+            opacity:1,
+            background:"blue"
+        }).animate({
+            width:"200px",
+            height:"200px",
+            opacity:0.5
+        },1000,function(){
+            $(this).css("background","green");
+        });
+    });
+
+});
+</script>
+
+</body>
+</html>
